@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="css/memory.css">
+    <link rel="stylesheet" href="css/all.min.css">
+    <link rel="stylesheet" href="css/normalize.css">
+</head>
+<body>
+    <!-- انشاء زرار البدء -->
+    <div class="button">
+        <span>Start</span>
+    </div>
+    <!-- //انشاء زرار البدء// -->
+    <!-- انشاء الديف اللي هيشيل كل اللعبه  -->
+    <div class="counter" id="counter">
+        <!-- انشاء اللوجو بتاع اللعبه وعدد الاخطاء -->
+        <div class="logo">
+            <div class="name">
+                Hollo <span id="user"></span>
+            </div>
+            <div class="wrong">
+                The Wrong is <span id="numper">0</span> Wrongs
+            </div>
+        </div>
+        <!-- // انشاء اللوجو بتاع اللعبه وعدد الاخطاء // -->
+        <!-- الديف اللي هيشيل كل البطاقات  -->
+        <div class="counter-boxs">
+            <div class="box" data-technology="hand">
+                <div class="face front">
+                    <i class="fa-solid fa-question"></i>
+                </div>
+                <div class="face back">
+                    <i class="fa-regular fa-hand-spock"></i>
+                </div>
+            </div>
+            <div class="box" data-technology="hand">
+                <div class="face front">
+                    <i class="fa-solid fa-question"></i>
+                </div>
+                <div class="face back">
+                    <i class="fa-regular fa-hand-spock"></i>
+                </div>
+            </div>
+            <div class="box" data-technology="dots">
+                <div class="face front">
+                    <i class="fa-solid fa-question"></i>
+                </div>
+                <div class="face back">
+                    <i class="fa-solid fa-comment-dots"></i>
+                </div>
+            </div>
+            <div class="box" data-technology="dots">
+                <div class="face front">
+                    <i class="fa-solid fa-question"></i>
+                </div>
+                <div class="face back">
+                    <i class="fa-solid fa-comment-dots"></i>
+                </div>
+            </div>
+            <div class="box" data-technology="facebook">
+                <div class="face front">
+                    <i class="fa-solid fa-question"></i>
+                </div>
+                <div class="face back">
+                    <i class="fa-brands fa-facebook-messenger"></i>
+                </div>
+            </div>
+            <div class="box" data-technology="facebook">
+                <div class="face front">
+                    <i class="fa-solid fa-question"></i>
+                </div>
+                <div class="face back">
+                    <i class="fa-brands fa-facebook-messenger"></i>
+                </div>
+            </div>
+            <div class="box" data-technology="github">
+                <div class="face front">
+                    <i class="fa-solid fa-question"></i>
+                </div>
+                <div class="face back">
+                    <i class="fa-brands fa-github"></i>
+                </div>
+            </div>
+            <div class="box" data-technology="github">
+                <div class="face front">
+                    <i class="fa-solid fa-question"></i>
+                </div>
+                <div class="face back">
+                    <i class="fa-brands fa-github"></i>
+                </div>
+            </div>
+            <div class="box" data-technology="sparkles">
+                <div class="face front">
+                    <i class="fa-solid fa-question"></i>
+                </div>
+                <div class="face back">
+                    <i class="fa-solid fa-wand-magic-sparkles"></i>
+                </div>
+            </div>
+            <div class="box" data-technology="sparkles">
+                <div class="face front">
+                    <i class="fa-solid fa-question"></i>
+                </div>
+                <div class="face back">
+                    <i class="fa-solid fa-wand-magic-sparkles"></i>
+                </div>
+            </div>
+            <div class="box" data-technology="truck">
+                <div class="face front">
+                    <i class="fa-solid fa-question"></i>
+                </div>
+                <div class="face back">
+                    <i class="fa-solid fa-truck-fast"></i>
+                </div>
+            </div>
+            <div class="box" data-technology="truck">
+                <div class="face front">
+                    <i class="fa-solid fa-question"></i>
+                </div>
+                <div class="face back">
+                    <i class="fa-solid fa-truck-fast"></i>
+                </div>
+            </div>
+            <div class="box" data-technology="camera">
+                <div class="face front">
+                    <i class="fa-solid fa-question"></i>
+                </div>
+                <div class="face back">
+                    <i class="fa-solid fa-camera-retro"></i>
+                </div>
+            </div>
+            <div class="box" data-technology="camera">
+                <div class="face front">
+                    <i class="fa-solid fa-question"></i>
+                </div>
+                <div class="face back">
+                    <i class="fa-solid fa-camera-retro"></i>
+                </div>
+            </div>
+            <div class="box" data-technology="eye">
+                <div class="face front">
+                    <i class="fa-solid fa-question"></i>
+                </div>
+                <div class="face back">
+                    <i class="fa-solid fa-eye"></i>
+                </div>
+            </div>
+            <div class="box" data-technology="eye">
+                <div class="face front">
+                    <i class="fa-solid fa-question"></i>
+                </div>
+                <div class="face back">
+                    <i class="fa-solid fa-eye"></i>
+                </div>
+            </div>
+            <div class="box" data-technology="gamepad">
+                <div class="face front">
+                    <i class="fa-solid fa-question"></i>
+                </div>
+                <div class="face back">
+                    <i class="fa-solid fa-gamepad"></i>
+                </div>
+            </div>
+            <div class="box" data-technology="gamepad">
+                <div class="face front">
+                    <i class="fa-solid fa-question"></i>
+                </div>
+                <div class="face back">
+                    <i class="fa-solid fa-gamepad"></i>
+                </div>
+            </div>
+            <div class="box" data-technology="flask">
+                <div class="face front">
+                    <i class="fa-solid fa-question"></i>
+                </div>
+                <div class="face back">
+                    <i class="fa-solid fa-flask"></i>
+                </div>
+            </div>
+            <div class="box" data-technology="flask">
+                <div class="face front">
+                    <i class="fa-solid fa-question"></i>
+                </div>
+                <div class="face back">
+                    <i class="fa-solid fa-flask"></i>
+                </div>
+            </div>
+        </div>
+        <!-- // الديف اللي هيشيل كل البطاقات // -->
+        <div class="result" id="result">
+            
+        </div>
+    </div>
+    <!-- // انشاء الديف اللي هيشيل كل اللعبه // -->
+    <script src="memory.js"></script>
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

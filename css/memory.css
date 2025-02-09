@@ -1,0 +1,157 @@
+*{
+    box-sizing: border-box; /*=======================>> */
+}
+/* تنسيق زرار البدء */
+.button{
+    background-color: #2196f3f0;
+    width: 100%;
+    height: 100%;
+    position: fixed;
+    z-index: 10;
+}
+.button span{
+    background-color: #E91E63;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: white;
+    border-radius: 10px;
+    font-size: 36px;
+    font-weight: bold;
+    padding: 10px 40px;
+    cursor: pointer;
+}
+/* //تنسيق زرار البدء // */
+.counter{
+    display: flex;
+    flex-direction: column;
+}
+/* تنسيق الللوجو */
+.logo{
+    display: flex;
+    justify-content: space-between;
+    font-size: 30px;
+    background-color: #2196F3;
+    color: white;
+    font-weight: bold;
+    padding: 20px;
+    border-radius: 20px;
+    margin-bottom: 10px;
+    border: 10px solid #E91E63;
+}
+.logo .wrong #numper{
+    background-color: #9C27B0;
+    padding: 7px 15px;
+    border-radius: 46px;
+}
+/* // تنسيق الللوجو // */
+/* تنسيق الديف اللي شايل كل البطاقات */
+.counter-boxs{
+    display: grid;
+    grid-template-columns: repeat(5 , 100px);
+    gap: 50px;
+    background-color: #673AB7;
+    justify-content: center;
+}
+@media (max-width: 767px) {
+    .counter-boxs{
+        grid-template-columns: repeat(auto-fill, 100px);
+    }
+}
+.counter-boxs.no-clicking { /* ========================>?js */
+    pointer-events: none;
+}
+/* // تنسيق الديف اللي شايل كل البطاقات // */
+/* تنسيق البطاقات  */
+.box{
+    cursor: pointer;
+    transform-style: preserve-3d; /* بتخلي الصوره ثلاثية الأبعاد  */
+    transition: transform .5s;
+}
+.box.is-flibbed { /* ========================>?js */
+    transform: rotateY(180deg);
+}
+.box.moved{ /* ========================>?js */
+    display: none;
+}
+i{
+    font-size: 50px;
+    /* background-color: #FF5722; */
+    background: #FF5722;
+    animation: stripeGradientAnimation 30s ease infinite;
+    color: white;
+    margin: 10px;
+    padding: 20px;
+    border-radius: 20px;
+    border: 5px solid #2bf1cd;
+    outline: 5px solid #0027ff;
+    width: 100%;
+}
+.face{
+    backface-visibility: hidden; /*بتخلي الظهر بتاع الصوره يختفي لما يلف*/
+}
+.front .fa-question{
+    text-align: center;
+    background: black;
+}
+.back{
+    position: absolute;
+    top: 0;
+    text-align: center;
+    transform: rotateY(180deg); /* (بتخفيها backface-visibility: hidden; بتلف الصوره ال 180 درجه بس حول المحور الصادات و( باستخدام ال  */
+    width: 100px;
+}
+/* // تنسيق البطاقات // */
+/* // تنسيق الفوز والخساره // */
+.win , .lose{
+    font-size: 50px;
+    padding: 60px;
+    text-align: center;
+    border-radius: 30px;
+    position: fixed;
+    bottom: 400px;
+}
+/* تنسيق الفوز والخساره  */
+/* تنسيق الفوز */
+.win{
+    background-color: #70ff3b;
+    color: #9C27B0;
+}
+/* // تنسيق الفوز // */
+/* تنسيق الخساره */
+.lose{
+    background-color: #ff1313;
+    color: #FFEB3B;
+}
+/* // تنسيق الخساره // */
+/* تنسيق النتائج */
+.result{
+    width: 30%;
+    margin: 10px auto;
+    background-color: #777;
+    color: white;
+    height: 100%;
+    text-align: center;
+}
+.result p{
+    letter-spacing: 1px;
+    font-size: 20px;
+    font-weight: bold;
+    text-transform: capitalize;
+}
+/* // تنسيق النتائج // */
+
+.HomepageHeroGradient {
+    background: linear-gradient(135deg, #2196f3, #F44336, #E91E63, #9C27B0, #673AB7, #3F51B5, #2196F3, #03A9F4, #00BCD4, #009688, #4CAF50, #8BC34A, #CDDC39, #FFEB3B, #FFC107, #FF9800, #FF5722);
+    background-size: 600% 600%;
+    animation: stripeGradientAnimation 30s ease infinite;
+    height: 80vh;
+    width: 100vw;
+}
+@keyframes stripeGradientAnimation {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+}
+
