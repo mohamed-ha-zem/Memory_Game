@@ -39,6 +39,10 @@
     border-radius: 20px;
     margin-bottom: 10px;
     border: 10px solid #E91E63;
+    align-items: center;
+}
+.name{
+    margin: 20px;
 }
 .logo .wrong #numper{
     background-color: #9C27B0;
