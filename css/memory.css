@@ -1,161 +1,337 @@
-*{
-    box-sizing: border-box; /*=======================>> */
+:root {
+    --primary-color: #2196F3;
+    --accent-color: #E91E63;
+    --success-color: #70ff3b;
+    --error-color: #ff1313;
+    --card-back: #FF5722;
+    --text-color: #ffffff;
 }
-/* تنسيق زرار البدء */
-.button{
-    background-color: #2196f3f0;
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f0f4f8;
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* Start Button Styling */
+.button {
+    position: fixed;
+    top: 0;
+    left: 0;
     width: 100%;
     height: 100%;
-    position: fixed;
-    z-index: 10;
+    background: linear-gradient(135deg, var(--primary-color), var(--accent-color));
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+    animation: fadeIn 0.5s ease-in;
 }
-.button span{
-    background-color: #E91E63;
+
+.button span {
+    background-color: var(--accent-color);
+    color: var(--text-color);
+    font-size: 2.5rem;
+    font-weight: bold;
+    padding: 15px 50px;
+    border-radius: 15px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+}
+
+.button span:hover {
+    transform: scale(1.1);
+    background-color: #c2185b;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+/* Main Game Container */
+.counter {
+    max-width: 1200px;
+    width: 90%;
+    margin: 20px auto;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    background-color: var(--primary-color);
+    padding: 20px;
+    border-radius: 20px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+}
+
+/* Logo and Score Section */
+.logo {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #1976D2;
+    padding: 15px 20px;
+    border-radius: 15px;
+    border: 5px solid var(--accent-color);
+    color: var(--text-color);
+    font-size: 1.8rem;
+    font-weight: bold;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+
+.logo .name,
+.logo .wrong {
+    margin: 0;
+}
+
+.logo .wrong #numper {
+    background-color: #9C27B0;
+    padding: 5px 15px;
+    border-radius: 20px;
+    margin-left: 10px;
+}
+
+/* Card Grid */
+.counter-boxs {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 20px;
+    background-color: #673AB7;
+    padding: 20px;
+    border-radius: 15px;
+    justify-content: center;
+}
+
+.counter-boxs.no-clicking {
+    pointer-events: none;
+}
+
+/* Card Styling */
+.box {
+    position: relative;
+    width: 100%;
+    aspect-ratio: 1;
+    cursor: pointer;
+    transform-style: preserve-3d;
+    transition: transform 0.5s ease;
+}
+
+.box.is-flibbed {
+    transform: rotateY(180deg);
+}
+
+.box.moved {
+    opacity: 0;
+    transform: scale(0);
+    transition: all 0.5s ease;
+}
+
+.face {
     position: absolute;
+    width: 100%;
+    height: 100%;
+    backface-visibility: hidden;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 10px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+}
+
+.front {
+    background: linear-gradient(45deg, #000, #333);
+}
+
+.front .fa-question {
+    font-size: 3rem;
+    color: var(--text-color);
+}
+
+.back {
+    transform: rotateY(180deg);
+    background: var(--card-back);
+    border: 3px solid #2bf1cd;
+    outline: 3px solid #0027ff;
+}
+
+.back i {
+    font-size: 2.5rem;
+    color: var(--text-color);
+    animation: pulse 2s ease infinite;
+}
+
+@keyframes pulse {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.1); }
+    100% { transform: scale(1); }
+}
+
+/* Win and Lose Popups */
+.win, .lose {
+    position: fixed;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-    color: white;
-    border-radius: 10px;
-    font-size: 36px;
+    padding: 30px;
+    font-size: 2rem;
     font-weight: bold;
-    padding: 10px 40px;
-    cursor: pointer;
-}
-/* //تنسيق زرار البدء // */
-.counter{
-    display: flex;
-    flex-direction: column;
-}
-/* تنسيق الللوجو */
-.logo{
-    display: flex;
-    justify-content: space-between;
-    font-size: 30px;
-    background-color: #2196F3;
-    color: white;
-    font-weight: bold;
-    padding: 20px;
+    text-align: center;
     border-radius: 20px;
-    margin-bottom: 10px;
-    border: 10px solid #E91E63;
-    align-items: center;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+    animation: popIn 0.5s ease;
+    z-index: 1000;
 }
-.name{
-    margin: 20px;
-}
-.logo .wrong #numper{
-    background-color: #9C27B0;
-    padding: 7px 15px;
-    border-radius: 46px;
-}
-/* // تنسيق الللوجو // */
-/* تنسيق الديف اللي شايل كل البطاقات */
-.counter-boxs{
-    display: grid;
-    grid-template-columns: repeat(5 , 100px);
-    gap: 50px;
-    background-color: #673AB7;
-    justify-content: center;
-}
-@media (max-width: 767px) {
-    .counter-boxs{
-        grid-template-columns: repeat(auto-fill, 100px);
-    }
-}
-.counter-boxs.no-clicking { /* ========================>?js */
-    pointer-events: none;
-}
-/* // تنسيق الديف اللي شايل كل البطاقات // */
-/* تنسيق البطاقات  */
-.box{
-    cursor: pointer;
-    transform-style: preserve-3d; /* بتخلي الصوره ثلاثية الأبعاد  */
-    transition: transform .5s;
-}
-.box.is-flibbed { /* ========================>?js */
-    transform: rotateY(180deg);
-}
-.box.moved{ /* ========================>?js */
-    display: none;
-}
-i{
-    font-size: 50px;
-    /* background-color: #FF5722; */
-    background: #FF5722;
-    animation: stripeGradientAnimation 30s ease infinite;
-    color: white;
-    margin: 10px;
-    padding: 20px;
-    border-radius: 20px;
-    border: 5px solid #2bf1cd;
-    outline: 5px solid #0027ff;
-    width: 100%;
-}
-.face{
-    backface-visibility: hidden; /*بتخلي الظهر بتاع الصوره يختفي لما يلف*/
-}
-.front .fa-question{
-    text-align: center;
-    background: black;
-}
-.back{
-    position: absolute;
-    top: 0;
-    text-align: center;
-    transform: rotateY(180deg); /* (بتخفيها backface-visibility: hidden; بتلف الصوره ال 180 درجه بس حول المحور الصادات و( باستخدام ال  */
-    width: 100px;
-}
-/* // تنسيق البطاقات // */
-/* // تنسيق الفوز والخساره // */
-.win , .lose{
-    font-size: 50px;
-    padding: 60px;
-    text-align: center;
-    border-radius: 30px;
-    position: fixed;
-    bottom: 400px;
-}
-/* تنسيق الفوز والخساره  */
-/* تنسيق الفوز */
-.win{
-    background-color: #70ff3b;
+
+.win {
+    background-color: var(--success-color);
     color: #9C27B0;
 }
-/* // تنسيق الفوز // */
-/* تنسيق الخساره */
-.lose{
-    background-color: #ff1313;
+
+.lose {
+    background-color: var(--error-color);
     color: #FFEB3B;
 }
-/* // تنسيق الخساره // */
-/* تنسيق النتائج */
-.result{
-    width: 30%;
-    margin: 10px auto;
+
+@keyframes popIn {
+    from { transform: translate(-50%, -50%) scale(0); opacity: 0; }
+    to { transform: translate(-50%, -50%) scale(1); opacity: 1; }
+}
+
+/* Results Section */
+.result {
+    width: 100%;
+    max-width: 400px;
+    margin: 20px auto;
     background-color: #777;
-    color: white;
-    height: 100%;
+    color: var(--text-color);
+    padding: 15px;
+    border-radius: 15px;
     text-align: center;
 }
-.result p{
-    letter-spacing: 1px;
-    font-size: 20px;
+
+.result p {
+    font-size: 1.2rem;
     font-weight: bold;
     text-transform: capitalize;
+    margin: 10px 0;
 }
-/* // تنسيق النتائج // */
 
-.HomepageHeroGradient {
-    background: linear-gradient(135deg, #2196f3, #F44336, #E91E63, #9C27B0, #673AB7, #3F51B5, #2196F3, #03A9F4, #00BCD4, #009688, #4CAF50, #8BC34A, #CDDC39, #FFEB3B, #FFC107, #FF9800, #FF5722);
+/* Gradient Background Animation */
+body::before {
+    content: '';
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(135deg, #2196f3, #F44336, #E91E63, #9C27B0, #673AB7, #3F51B5, #2196F3);
     background-size: 600% 600%;
     animation: stripeGradientAnimation 30s ease infinite;
-    height: 80vh;
-    width: 100vw;
+    z-index: -1;
 }
+
 @keyframes stripeGradientAnimation {
     0% { background-position: 0% 50%; }
     50% { background-position: 100% 50%; }
     100% { background-position: 0% 50%; }
 }
 
+/* Responsive Design */
+@media (max-width: 1024px) {
+    .counter-boxs {
+        grid-template-columns: repeat(4, 1fr);
+        gap: 15px;
+    }
+
+    .logo {
+        font-size: 1.5rem;
+        flex-direction: column;
+        text-align: center;
+    }
+}
+
+@media (max-width: 768px) {
+    .counter {
+        margin: 10px;
+        padding: 15px;
+    }
+
+    .counter-boxs {
+        grid-template-columns: repeat(3, 1fr);
+        gap: 10px;
+        padding: 15px;
+    }
+
+    .box {
+        aspect-ratio: 1;
+    }
+
+    .back i {
+        font-size: 2rem;
+    }
+
+    .front .fa-question {
+        font-size: 2.5rem;
+    }
+
+    .win, .lose {
+        font-size: 1.5rem;
+        padding: 20px;
+        width: 90%;
+    }
+
+    .button span {
+        font-size: 2rem;
+        padding: 10px 30px;
+    }
+}
+
+@media (max-width: 425px) {
+    .counter-boxs {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 8px;
+        padding: 10px;
+    }
+
+    .logo {
+        font-size: 1.2rem;
+        padding: 10px;
+    }
+
+    .back i {
+        font-size: 1.5rem;
+    }
+
+    .front .fa-question {
+        font-size: 2rem;
+    }
+
+    .result {
+        width: 90%;
+        padding: 10px;
+    }
+
+    .result p {
+        font-size: 1rem;
+    }
+
+    .win, .lose {
+        font-size: 1.2rem;
+        padding: 15px;
+    }
+
+    .button span {
+        font-size: 1.5rem;
+        padding: 8px 20px;
+    }
+}
